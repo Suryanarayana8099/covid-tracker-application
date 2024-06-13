@@ -1,51 +1,79 @@
 <!DOCTYPE html>
-
 <html xmlns:th="http://www.thymeleaf.org">
-
 <head>
-    <title>Covid-19 Cases Tracker Application</title>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+<meta charset="UTF-8">
+<title>Login</title>
+<style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f2f2f2;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+ 
+        .login-container {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 300px;
+            text-align: center;
+        }
+ 
+        h2 {
+            margin-bottom: 20px;
+        }
+ 
+        .form-group {
+            margin-bottom: 15px;
+            text-align: left;
+        }
+ 
+        label {
+            display: block;
+            margin-bottom: 5px;
+        }
+ 
+        input {
+            width: 100%;
+            padding: 8px;
+            box-sizing: border-box;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+ 
+        button {
+            width: 100%;
+            padding: 10px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+ 
+        button:hover {
+            background-color: #45a049;
+        }
+</style>
 </head>
-
 <body>
-<div class="container">
-    <h1>Covid-19 Cases Tracker Application</h1>
-    <p>This application lists the current number of cases reported across the globe</p>
-
-    <div class="jumbotron">
-        <h1 class="display-4" th:text="${totalReportedCases}"></h1>
-        <p class="lead">Total cases reported as of today: <p id="date"></p></p>
-        <hr class="my-4">
-        <p>
-            <span>New cases reported since previous day:</span>
-            <span th:text="${totalNewCases}"></span>
-        </p>
-
-    </div>
-
-    <table class="table">
-        <tr>
-            <th>State</th>
-            <th>Country</th>
-            <th>Total cases reported</th>
-            <th>Changes since last day</th>
-        </tr>
-        <tr th:each="locationStat : ${locationStats}">
-            <td th:text="${locationStat.state}"></td>
-            <td th:text="${locationStat.country}"></td>
-            <td th:text="${locationStat.latestTotalCases}">0</td>
-            <td th:text="${locationStat.diffFromPrevDay}">0</td>
-        </tr>
-    </table>
+<div class="login-container">
+<h2>Login</h2>
+<form th:action="@{/login}" method="post">
+<div class="form-group">
+<label for="username">Username:</label>
+<input type="text" id="username" name="username" required>
 </div>
-<script>
-    n =  new Date();
-    y = n.getFullYear();
-    m = n.getMonth() + 1;
-    d = n.getDate();
-    document.getElementById("date").innerHTML = m + "/" + d + "/" + y;
-</script>
+<div class="form-group">
+<label for="password">Password:</label>
+<input type="password" id="password" name="password" required>
+</div>
+<button type="submit">Login</button>
+</form>
+</div>
 </body>
-
 </html>
