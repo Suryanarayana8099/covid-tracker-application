@@ -2,78 +2,100 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
 <meta charset="UTF-8">
-<title>Login</title>
+<title>Grid Dynamics IT Company Login</title>
 <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #f2f2f2;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            margin: 0;
-        }
- 
-        .login-container {
-            background-color: #fff;
-            padding: 20px;
-            border-radius: 5px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            width: 300px;
-            text-align: center;
-        }
- 
-        h2 {
-            margin-bottom: 20px;
-        }
- 
-        .form-group {
-            margin-bottom: 15px;
-            text-align: left;
-        }
- 
-        label {
-            display: block;
-            margin-bottom: 5px;
-        }
- 
-        input {
-            width: 100%;
-            padding: 8px;
-            box-sizing: border-box;
-            border: 1px solid #ccc;
-            border-radius: 4px;
-        }
- 
-        button {
-            width: 100%;
-            padding: 10px;
-            background-color: #4CAF50;
-            color: white;
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
-        }
- 
-        button:hover {
-            background-color: #45a049;
-        }
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #e9eef2;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        margin: 0;
+    }
+
+    .login-container {
+        background-color: #fff;
+        padding: 20px;
+        border-radius: 5px;
+        box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+        width: 350px;
+        text-align: center;
+    }
+
+    .login-container img {
+        width: 150px;
+        margin-bottom: 20px;
+    }
+
+    h2 {
+        color: #333;
+        margin-bottom: 20px;
+    }
+
+    .form-group {
+        margin-bottom: 15px;
+        text-align: left;
+    }
+
+    label {
+        display: block;
+        margin-bottom: 5px;
+        color: #555;
+    }
+
+    input {
+        width: 100%;
+        padding: 10px;
+        box-sizing: border-box;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        transition: border-color 0.3s;
+    }
+
+    input:focus {
+        border-color: #007bff;
+    }
+
+    button {
+        width: 100%;
+        padding: 12px;
+        background-color: #007bff;
+        color: white;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        font-size: 16px;
+        transition: background-color 0.3s;
+    }
+
+    button:hover {
+        background-color: #0056b3;
+    }
+
+    .welcome-message {
+        color: #007bff;
+        font-size: 18px;
+        margin-bottom: 20px;
+    }
 </style>
 </head>
 <body>
 <div class="login-container">
-<h2>Login</h2>
-<form th:action="@{/login}" method="post">
-<div class="form-group">
-<label for="username">Username:</label>
-<input type="text" id="username" name="username" required>
-</div>
-<div class="form-group">
-<label for="password">Password:</label>
-<input type="password" id="password" name="password" required>
-</div>
-<button type="submit">Login</button>
-</form>
+    <img src="R.jpg" alt="Grid Dynamics Logo">
+    <h2>Welcome to Grid Dynamics</h2>
+    <div class="welcome-message">Information Technology Company</div>
+    <form th:action="@{/login}" method="post">
+        <div class="form-group">
+            <label for="username">Username:</label>
+            <input type="text" id="username" name="username" required>
+        </div>
+        <div class="form-group">
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password" required>
+        </div>
+        <button type="submit">Login</button>
+    </form>
 </div>
 </body>
 </html>
