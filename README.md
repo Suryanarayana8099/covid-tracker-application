@@ -1,4 +1,4 @@
-# Project Title
+# Project Titl
 
 A COVID-19 Tracker Web Application.
 
