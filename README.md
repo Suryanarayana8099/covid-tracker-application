@@ -1,4 +1,4 @@
-# Project Titl
+# Project Tite
 
 A COVID-19 Tracker Web Application.
 
