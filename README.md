@@ -1,6 +1,5 @@
 # Project Titl
 A COVID-19 Tracker Web Application
-
 ## 1. Project Description: 
 
 A Java Spring Boot Web application for tracking global Corona Virus (COVID-19) cases.
