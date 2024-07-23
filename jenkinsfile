@@ -7,7 +7,7 @@ pipeline {
         DOCKER_HUB_REGISTRY = 'docker.io'
         IMAGE_TAG = 'vigridtest'
         SONAR_SERVER_URL = 'http://54.177.29.233:9000'
-        SONAR_LOGIN = 'squ_43ab795516f57fbd4eef59b939230703894f2081'
+        SONAR_LOGIN = 'squ_ce7aea3c209111cb93109150676fa7ee694c3ac3'
         KUBECONFIG_PATH = '/home/ubuntu/.kube/config'  // Update this path
     }
 
