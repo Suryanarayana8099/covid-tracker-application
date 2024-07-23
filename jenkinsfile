@@ -6,6 +6,8 @@ pipeline {
         DOCKERFILE_BRANCH = 'main'
         DOCKER_HUB_REGISTRY = 'docker.io'
         IMAGE_TAG = 'vigridtest'
+        SONAR_SERVER_URL = 'http://54.177.29.233:9000'
+        SONAR_LOGIN = 'squ_43ab795516f57fbd4eef59b939230703894f2081'
         KUBECONFIG_PATH = '/home/ubuntu/.kube/config'  // Update this path
     }
 
@@ -46,6 +48,25 @@ pipeline {
                     withCredentials([usernamePassword(credentialsId: 'docker-credentials', passwordVariable: 'dockerHubPassword', usernameVariable: 'dockerHubUser')]) {
                         sh "sudo docker login -u ${env.dockerHubUser} -p ${dockerHubPassword}"
                         sh "sudo docker push ${DOCKER_HUB_REGISTRY}/${env.dockerHubUser}/${RESTAPI}:${IMAGE_TAG}"
+                    }
+                }
+            }
+        }
+
+        stage('Code Analysis') {
+            environment {
+                scannerHome = tool 'sonarqube'
+            }
+            steps {
+                script {
+                    dir("${WORKSPACE}/${RESTAPI}") {
+                        sh "${scannerHome}/bin/sonar-scanner \
+                            -Dsonar.projectKey=T1 \
+                            -Dsonar.projectName=T1 \
+                            -Dsonar.sources=. \
+                            -Dsonar.java.binaries=target/classes \
+                            -Dsonar.host.url=${SONAR_SERVER_URL} \
+                            -Dsonar.login=${SONAR_LOGIN}"
                     }
                 }
             }
