@@ -1,7 +1,7 @@
 apiVersion: v1
 kind: Pod
 metadata:
-  name: my-app-pod
+  name: Devops
   labels:
     app: my-app
 spec:
@@ -14,7 +14,7 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: my-app-service
+  name: Devops-service
 spec:
   selector:
     app: my-app
